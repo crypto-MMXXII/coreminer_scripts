@@ -22,3 +22,10 @@ sudo bash -c 'for i in {0..31}; do cpufreq-set -c $i -g performance; done'
 cpufreq-info
 ###########
 ########### should be it. 
+
+
+########### other usefull command:
+########### check prozessor clock speed per thread
+grep -E '^model name|^cpu MHz' /proc/cpuinfo'
+###########
+
