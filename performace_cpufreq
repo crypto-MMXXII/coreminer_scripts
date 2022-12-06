@@ -2,19 +2,23 @@ This is to set the energie mode to performace mode within ubuntu. Worked for us,
 
 
 ###########
-###########install cpufreq
+########### install cpufreq
 sudo apt-get install cpufrequtils
 ###########
-###########check if installed
+########### check if installed
 cpufreq-info
 ###########
-###########check current clockspeed
+########### check current clockspeed
 watch -n1 "lscpu | grep MHz | awk '{print $1}'";
 ###########
-###########change to performace
+########### change to performace
+###########
+########### NOTICE! Make sure you set the number 31 to the amount of cores your CPU has minus one (since the count starts at 0). 
+########### In my case I run a 12 core Ryzen CPU, therefore I need to set it to 11. If you have an 8 core CPU, you set it to 7 and so on. 
+########### Then hit enter to run the script.
 sudo bash -c 'for i in {0..31}; do cpufreq-set -c $i -g performance; done'
 ###########
-###########check again what mode we are in
+########### check again what mode we are in
 cpufreq-info
 ###########
-###########should be it. 
+########### should be it. 
