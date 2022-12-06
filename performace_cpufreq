@@ -1,0 +1,20 @@
+This is to set the energie mode to performace mode within ubuntu. Worked for us, amybe for you too
+
+
+###########
+install cpufreq
+sudo apt-get install cpufrequtils
+###########
+check if installed
+cpufreq-info
+###########
+check current clockspeed
+watch -n1 "lscpu | grep MHz | awk '{print $1}'";
+###########
+change to performace
+sudo bash -c 'for i in {0..31}; do cpufreq-set -c $i -g performance; done'
+###########
+check again what mode we are in
+cpufreq-info
+###########
+should be it. 
